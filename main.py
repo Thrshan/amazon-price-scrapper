@@ -1,14 +1,19 @@
 from selenium.webdriver import Chrome
-import datetime
+from datetime import datetime
+import sql_handler
 import time
 
+def scrub(table_name):
+    return ''.join( chr for chr in table_name if chr.isalnum() )
 
 links = []
 with open('links', 'r') as links_file:
     for line in links_file:
         links.append(line.strip())
-print(links)
 
+dt = datetime.now()
+ts = dt.timestamp()
+date = dt.strftime("%Y-%m-%d %H:%M:%S")
 
 
 try:
@@ -16,25 +21,14 @@ try:
     driver.get(links[0])
     title = driver.find_element_by_css_selector("#productTitle").text
     price = driver.find_element_by_css_selector(".offer-price").text
-    print(title, price)
+
+    db_file = "db/price_list.db"
+    data = {
+        'date':date,
+        'ts':ts,
+        'price':float(price.split(' ')[-1])
+    }
+    sql_handler.insert_data_db(db_file, '"{}"'.format(title), data)
 finally:
     driver.quit()
-"""
-import sqlite3
-con = sqlite3.connect('db/example.db')
-cur = con.cursor()
 
-# Create table
-cur.execute('''CREATE TABLE stocks
-               (date text, trans text, symbol text, qty real, price real)''')
-
-# Insert a row of data
-cur.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
-
-# Save (commit) the changes
-con.commit()
-
-# We can also close the connection if we are done with it.
-# Just be sure any changes have been committed or they will be lost.
-con.close()
-"""
