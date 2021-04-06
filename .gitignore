@@ -1,4 +1,7 @@
 chromedriver.exe
 .vscode
 *.pyc
+__pycache__
+
+!db/.gitkeep
 db/*.db

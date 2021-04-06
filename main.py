@@ -4,7 +4,7 @@ from datetime import datetime
 import sql_handler
 import os
 
-cwd = os.getcwd();
+cwd = os.path.dirname(os.path.realpath(__file__))
 
 def scrub(table_name):
     return ''.join( chr for chr in table_name if chr.isalnum() )
