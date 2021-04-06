@@ -1,3 +1,4 @@
 chromedriver.exe
 .vscode
 *.pyc
+db/*.db

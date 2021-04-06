@@ -2,13 +2,15 @@ from selenium.webdriver import Chrome
 from selenium import webdriver
 from datetime import datetime
 import sql_handler
-import time
+import os
+
+cwd = os.getcwd();
 
 def scrub(table_name):
     return ''.join( chr for chr in table_name if chr.isalnum() )
 
 links = []
-with open('/home/pi/Project/Python/amazon-price-scrapper/links', 'r') as links_file:
+with open(cwd + '/links', 'r') as links_file:
     for line in links_file:
         links.append(line.strip())
 
@@ -28,7 +30,7 @@ try:
     title = driver.find_element_by_css_selector("#productTitle").text
     price = driver.find_element_by_css_selector(".offer-price").text
 
-    db_file = "/home/pi/Project/Python/amazon-price-scrapper/db/price_list.db"
+    db_file = cwd + '/db/price_list.db'
     data = {
         'date':date,
         'ts':ts,
