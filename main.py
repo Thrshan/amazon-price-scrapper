@@ -23,7 +23,7 @@ try:
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--window-size=1420,1080')
-    # chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     driver = Chrome(chrome_options=chrome_options)
     for productLink in config['productLinks']:
@@ -32,14 +32,11 @@ try:
         if len(driver.find_elements_by_css_selector(".offer-price")) > 0:
             price = driver.find_element_by_css_selector(".offer-price").text
         else:
-            print(".offer-price not exist")
+           # print(".offer-price not exist")
             price = driver.find_element_by_css_selector("#priceblock_ourprice").text
 
-        print(price)
         price = price.replace("₹","").replace(",","")
-        print(price)
         price = float(price.strip())
-        print(price)
 
         db_file = cwd + '/db/' + config['dbFile'] if config['dbPath'] == "" else config['dbPath'] + "/" + config['dbFile']
         
