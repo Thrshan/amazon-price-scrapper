@@ -14,11 +14,6 @@ with open(cwd + '/config.hjson') as config_file:
 def scrub(table_name):
     return ''.join( chr for chr in table_name if chr.isalnum() )
 
-dt = datetime.now()
-ts = dt.timestamp()
-date = dt.strftime("%Y-%m-%d %H:%M:%S")
-
-
 try:
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
@@ -27,6 +22,9 @@ try:
     chrome_options.add_argument('--disable-gpu')
     driver = Chrome(chrome_options=chrome_options)
     for productLink in config['productLinks']:
+        dt = datetime.now()
+        ts = dt.timestamp()
+        date = dt.strftime("%Y-%m-%d %H:%M:%S")
         driver.get(productLink)
         title = driver.find_element_by_css_selector("#productTitle").text
         if len(driver.find_elements_by_css_selector(".offer-price")) > 0:
