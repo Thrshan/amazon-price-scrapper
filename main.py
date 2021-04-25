@@ -29,10 +29,10 @@ try:
         title = driver.find_element_by_css_selector("#productTitle").text
         if len(driver.find_elements_by_css_selector(".offer-price")) > 0:
             price = driver.find_element_by_css_selector(".offer-price").text
+        elif len(driver.find_elements_by_css_selector("#priceblock_dealprice")) > 0:
+            price = driver.find_element_by_css_selector("#priceblock_dealprice").text
         else:
-           # print(".offer-price not exist")
             price = driver.find_element_by_css_selector("#priceblock_ourprice").text
-
         price = price.replace("₹","").replace(",","")
         price = float(price.strip())
 
