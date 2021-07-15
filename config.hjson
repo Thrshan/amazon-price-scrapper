@@ -1,18 +1,8 @@
 {
     "productLinks" : [
-    	"https://www.amazon.in/gp/product/B073VLNGJW/ref=ox_sc_act_title_1?smid=AWO781LMQ8MJ4&psc=1",
-        "https://www.amazon.in/dp/8192910911/?coliid=I3E3P6M4T9ZL7J&colid=1R6IKOF2U9AZC&psc=1&ref_=lv_ov_lig_dp_it",
-        "https://www.amazon.in/Samsung-Galaxy-Prism-Black-Storage/dp/B089MC2P3P/ref=sr_1_4?dchild=1&keywords=samsung+galaxy+s&qid=1617823135&s=electronics&sr=1-4",
-		"https://www.amazon.in/dp/B011UK5DGY/?coliid=I2VTBG3W7LVRB0&colid=39WEU3EPLS3EQ&psc=1&ref_=lv_ov_lig_dp_it",
-		"https://www.amazon.in/Sony-Full-Frame-Mirrorless-Interchangeable-Lens-F3-5-5-6/dp/B07B45D8WV/ref=sr_1_2?dchild=1&keywords=sony+a7iii&qid=1617827171&s=electronics&sr=1-2",
-		"https://www.amazon.in/dp/B077454Z99/?coliid=I19LI1OSPM42IL&colid=39WEU3EPLS3EQ&psc=1&ref_=lv_ov_lig_dp_it",
-		"https://www.amazon.in/dp/076117897X/?coliid=I2J0EB5JVRQ4CN&colid=1R6IKOF2U9AZC&psc=1&ref_=lv_ov_lig_dp_it",
-		"https://www.amazon.in/Why-We-Sleep-Unlocking-Dreams/dp/B08YRV5B5T/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=&sr=",
-		"https://www.amazon.in/Why-We-Sleep-Matthew-Walker/dp/0141983760",
-		"https://www.amazon.in/Why-We-Sleep-Unlocking-Dreams/dp/1501144316"
-		
+    	"https://www.amazon.in/4-Hour-Work-Week-Escape-Anywhere/dp/0091929113"
     ],
     "dbFile": "price_list.db",
     # use "/" for path, eg "C:/data/scrap"
-    "dbPath":""
+    "dbPath":"~/projects/python/amazon-price-scrapper/db"
 }
